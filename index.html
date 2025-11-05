@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="ship-info-container">
+                <div class="ship-info">제623동원호</div>
+                <div class="company-name">동원수산(주) - 참치연승</div>
+            </div>
+        </div>
+        <div class="header-status">
+            <div class="status-items-container">
+                <div class="status-item active">
+                    <span class="power-icon on"></span>
+                    <span class="status-label">이동중</span>
+                </div>
+                <div class="status-item">
+                    <span class="power-icon off"></span>
+                    <span class="status-label">투승</span>
+                </div>
+                <div class="status-item">
+                    <span class="power-icon off"></span>
+                    <span class="status-label">양승</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="settings-btn">⚙️</button>
+        </div>
+    </header>
+
+    <section class="four-cards-section">
+        <div class="card operation-info-card job-info-card">
+            <div class="cctv-header">
+                <span class="camera-label">조업정보</span>
+            </div>
+            <div class="operation-info-content job-info-content">
+                <div class="info-row">
+                    <span class="info-label">항차</span>
+                    <span class="info-value">#12</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">세트</span>
+                    <span class="info-value">1</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">출항일시</span>
+                    <span class="info-value">2025-10-31 UTC</span>
+                </div>
+            </div>
+        </div>
+        <div class="card operation-info-card sensor-card">
+            <div class="cctv-header">
+                <span class="camera-label">센서정보</span>
+            </div>
+            <div class="operation-info-content sensor-content">
+                <div class="info-row">
+                    <span class="info-label">온도</span>
+                    <span class="info-value">31.45°C</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">속도</span>
+                    <span class="info-value">5 knot</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">좌우 기울기</span>
+                    <span class="info-value">-0.3"</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">앞뒤 기울기</span>
+                    <span class="info-value">90.0"</span>
+                </div>
+            </div>
+        </div>
+        <div class="card operation-info-card system-card">
+            <div class="cctv-header">
+                <span class="camera-label">시스템 사용량</span>
+            </div>
+            <div class="operation-info-content system-content">
+                <div class="info-left-section system-left">
+                    <div class="info-row">
+                        <span class="info-label">CPU</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">메모리</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">디스크</span>
+                    </div>
+                </div>
+                <div class="info-right-section system-right">
+                    <div class="info-row">
+                        <div class="progress-container">
+                            <div class="progress-bar progress-cpu" style="width: 35%"></div>
+                            <span class="progress-text">35%</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="progress-container">
+                            <div class="progress-bar progress-memory" style="width: 35%"></div>
+                            <span class="progress-text">35%</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="progress-container">
+                            <div class="progress-bar progress-disk" style="width: 45.1%"></div>
+                            <span class="progress-text">15.8TB / 35TB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card operation-info-card network-card">
+            <div class="cctv-header">
+                <span class="camera-label">네트워크 전송 이력</span>
+            </div>
+            <div class="operation-info-content network-content">
+                <div class="network-header">
+                    <div class="network-header-cell">상태</div>
+                    <div class="network-header-cell">이름</div>
+                    <div class="network-header-cell">마지막 수신 시간</div>
+                </div>
+                <div class="network-row">
+                    <div class="network-cell status-cell">
+                        <span class="status-icon success">✓</span>
+                    </div>
+                    <div class="network-cell name-cell">일일보고</div>
+                    <div class="network-cell time-cell">2025-11-04 00:01:00 UTC</div>
+                </div>
+                <div class="network-row">
+                    <div class="network-cell status-cell">
+                        <span class="status-icon failed">✗</span>
+                    </div>
+                    <div class="network-cell name-cell">선박위치</div>
+                    <div class="network-cell time-cell">2025-11-04 00:05:23 UTC</div>
+                </div>
+                <div class="network-row">
+                    <div class="network-cell status-cell">
+                        <span class="status-icon success">✓</span>
+                    </div>
+                    <div class="network-cell name-cell">모니터링</div>
+                    <div class="network-cell time-cell">2025-11-04 00:08:23 UTC</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bottom-section">
+        <div class="left-section">
+            <div class="small-card cctv-card">
+                <div class="cctv-header">
+                    <span class="camera-label">1번 카메라</span>
+                </div>
+                <div class="cctv-screen">
+                    <img src="image/Picture1.jpg" alt="1번 카메라" class="cctv-image">
+                </div>
+            </div>
+            <div class="small-card cctv-card">
+                <div class="cctv-header">
+                    <span class="camera-label">2번 카메라</span>
+                </div>
+                <div class="cctv-screen">
+                    <img src="image/Picture2.jpg" alt="2번 카메라" class="cctv-image">
+                </div>
+            </div>
+            <div class="small-card cctv-card">
+                <div class="cctv-header">
+                    <span class="camera-label">3번 카메라</span>
+                </div>
+                <div class="cctv-screen">
+                    <img src="image/Picture3.png" alt="3번 카메라" class="cctv-image">
+                </div>
+            </div>
+            <div class="small-card cctv-card">
+                <div class="cctv-header">
+                    <span class="camera-label">4번 카메라</span>
+                </div>
+                <div class="cctv-screen">
+                    <img src="image/Picture4.png" alt="4번 카메라" class="cctv-image">
+                </div>
+            </div>
+            <div class="small-card cctv-card">
+                <div class="cctv-header">
+                    <span class="camera-label">5번 카메라</span>
+                </div>
+                <div class="cctv-screen">
+                    <img src="image/Picture5.png" alt="5번 카메라" class="cctv-image">
+                </div>
+            </div>
+            <div class="small-card cctv-card">
+                <div class="cctv-header">
+                    <span class="camera-label">6번 카메라</span>
+                </div>
+                <div class="cctv-screen">
+                    <img src="image/Picture6.png" alt="6번 카메라" class="cctv-image">
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="large-card cctv-card">
+                <div class="cctv-header">
+                    <div class="camera-label-container">
+                        <span class="zoom-icon">⛶</span>
+                        <span class="camera-label">2번 카메라</span>
+                    </div>
+                    <span class="recording-date">최근 녹화일 : 2025-11-04 00:25:11 UTC</span>
+                </div>
+                <div class="cctv-screen">
+                    <img src="image/Picture2.jpg" alt="2번 카메라" class="cctv-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <span>위치: 9°35'59"S | 158°29'19"E</span>
+        </div>
+        <div class="footer-right">
+            <span>2025-11-04(Tue) 00:31:47 UTC | 2025-11-04(화요일) 09:31:47 KST - System Time</span>
+        </div>
+    </footer>
+</body>
+</html>
