@@ -39,6 +39,18 @@ body {
     position: relative;
 }
 
+.header-left::before {
+    content: "|";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 36px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
 .header-left::after {
     content: "|";
     position: absolute;
@@ -83,6 +95,8 @@ body {
 .company-name {
     font-size: 22px;
     font-weight: bold;
+    color: rgba(192, 192, 192, 1);
+    margin-top: 10px;
 }
 
 .fishing-type {
@@ -213,16 +227,15 @@ body {
     height: calc(25% - 16px);
     width: 100%;
     display: flex;
-    gap: 2px;
-    padding: 4px 20px 2px 20px;
-    margin-bottom: 0px;
+    gap: 4px;
+    padding: 0px 20px;
+    margin-bottom: 4px;
     background-color: #0A0F1F;
     min-height: 0;
     flex-shrink: 0;
 }
 
 .four-cards-section .card {
-    flex: 1;
     flex-shrink: 0;
     background-color: #242B3B;
     border-radius: 8px;
@@ -237,6 +250,18 @@ body {
     justify-content: center;
     font-size: 18px;
     font-weight: bold;
+}
+
+/* 조업정보 + 센서정보 = 40% (각각 20%) - gap 차이 보정 */
+.four-cards-section .card.job-info-card,
+.four-cards-section .card.sensor-card {
+    flex: 0 0 calc(20% - 2px);
+}
+
+/* 시스템 사용량 + 네트워크 전송 이력 = 60% (각각 30%) - gap 차이 보정 */
+.four-cards-section .card.system-card,
+.four-cards-section .card.network-card {
+    flex: 0 0 calc(30% - 2px);
 }
 
 /* 기존 .card의 가운데 정렬을 운영정보 카드에서는 해제 */
@@ -285,6 +310,16 @@ body {
 
 .operation-info-content > * {
     align-self: center;
+}
+
+/* 센서 카드의 operation-info-content는 grid로 변경 */
+.sensor-card .operation-info-content {
+    display: grid;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 12px;
+    gap: 0;
+    overflow: hidden;
 }
 
 /* 카드1 (조업정보) 전용 스타일 */
@@ -347,31 +382,41 @@ body {
 
 /* 카드2 (센서정보) 전용 스타일 */
 .sensor-content {
-    flex: 1;
+    width: 100%;
+    height: 100%;
     display: grid;
-    grid-template-columns: 3fr 7fr;
-    grid-template-rows: repeat(4, auto);
-    gap: 4px 8px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 12px;
     padding: 8px 12px;
     background-color: #242B3B;
     min-width: 0;
     min-height: 0;
     overflow: hidden;
-    place-content: center;
+    box-sizing: border-box;
 }
 
 .sensor-card .info-row {
-    display: contents;
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    column-gap: 20px;
+    min-height: 0;
+    align-items: center;
 }
 
 .sensor-card .info-label {
     font-weight: bold;
     color: white;
-    font-size: 20px;
+    font-size: clamp(14px, 1.8vh, 18px);
     text-align: left;
-    padding: 4px 8px;
+    padding: 6px 10px;
     background-color: rgba(128, 128, 128, 0.3);
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* 온도, 속도 label 배경 색상 */
@@ -388,13 +433,17 @@ body {
 
 .sensor-card .info-value {
     color: white;
-    font-size: 20px;
+    font-size: clamp(14px, 1.8vh, 18px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
-    padding: 4px 0;
+    padding: 6px 4px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .sensor-card .info-row:last-child .info-value {
@@ -687,7 +736,7 @@ body {
     flex: 1;
     width: 100%;
     display: flex;
-    gap: 2px;
+    gap: 4px;
     padding: 0px 20px 0px 20px;
     background-color: #0A0F1F;
     min-height: 0;
@@ -696,19 +745,18 @@ body {
 
 /* 왼쪽 섹션 - 2*3 카드 (40%) */
 .left-section {
-    width: 40%;
+    flex: 0 0 40%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 2px;
-    flex-shrink: 0;
+    gap: 4px;
     min-width: 0;
     min-height: 0;
 }
 
 .left-section .small-card {
     background-color: #242B3B;
-    border-radius: 8px;
+    border-radius: 0;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -724,11 +772,6 @@ body {
     height: 100%;
 }
 
-/* 5번 카메라 - 왼쪽 아래 코너 */
-.left-section .small-card:nth-child(5) {
-    border-radius: 8px;
-}
-
 /* CCTV 카드 스타일 */
 .cctv-card {
     flex-direction: column;
@@ -742,6 +785,12 @@ body {
     min-height: 0;
 }
 
+/* left-section과 right-section의 cctv-card는 corner round 제거 */
+.left-section .cctv-card,
+.right-section .cctv-card {
+    border-radius: 0;
+}
+
 .cctv-header {
     width: 100%;
     background-color: #26365F;
@@ -753,6 +802,19 @@ body {
     gap: 8px;
     font-size: 20px;
     font-weight: bold;
+}
+
+/* large-card의 헤더는 투명 배경으로 이미지 위에 오버레이 */
+.right-section .large-card .cctv-header {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 6px 8px;
+    justify-content: space-between;
 }
 
 .camera-label-container {
@@ -782,6 +844,22 @@ body {
     flex: 1;
 }
 
+/* Card 1~4의 label 앞에 두꺼운 | 아이콘 추가 */
+.four-cards-section .card .cctv-header .camera-label {
+    display: flex;
+    align-items: center;
+}
+
+.four-cards-section .card .cctv-header .camera-label::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 20px;
+    background-color: white;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
 .large-card .cctv-header {
     font-size: 22px;
 }
@@ -806,10 +884,47 @@ body {
     flex-shrink: 0;
 }
 
+/* 1번~6번 카메라 label box를 text 사이즈에 맞춰서 사이즈 줄이기 */
+.left-section .cctv-header {
+    justify-content: flex-start;
+    padding: 6px 8px;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: transparent;
+    width: auto;
+}
+
+.left-section .cctv-header .camera-label {
+    flex: 0 0 auto;
+    padding: 2px 8px;
+    background-color: rgba(10, 15, 31, 0.8);
+    border-radius: 4px;
+}
+
+/* 1번~6번 카메라만 이미지를 카드 label height까지 키워서 맞추기 */
+.left-section .cctv-card {
+    position: relative;
+}
+
+.left-section .cctv-screen {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.left-section .cctv-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* 오른쪽 섹션 - 큰 카드 (60%) */
 .right-section {
-    width: 60%;
-    flex-shrink: 0;
+    flex: 0 0 60%;
     min-width: 0;
     min-height: 0;
 }
@@ -818,7 +933,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #242B3B;
-    border-radius: 8px;
+    border-radius: 0;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -830,6 +945,51 @@ body {
     justify-content: center;
     font-size: 20px;
     font-weight: bold;
+    position: relative;
+}
+
+/* large-card의 이미지 확대 */
+.right-section .large-card .cctv-screen {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.right-section .large-card .cctv-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* large-card의 왼쪽 label box (확대 아이콘 + 2번) */
+.right-section .large-card .camera-label-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    background-color: rgba(10, 15, 31, 0.8);
+    border-radius: 4px;
+    font-size: 22px;
+    white-space: nowrap;
+}
+
+.right-section .large-card .camera-label-container .zoom-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.right-section .large-card .camera-label-container .camera-label {
+    font-size: 22px;
+}
+
+/* large-card의 오른쪽 label box (최근 녹화일) */
+.right-section .large-card .recording-date {
+    padding: 6px 12px;
+    background-color: rgba(10, 15, 31, 0.8);
+    border-radius: 4px;
+    font-size: 22px;
+    white-space: nowrap;
 }
 
 /* Footer - 2.5% */
