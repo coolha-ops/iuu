@@ -910,33 +910,35 @@ body {
     flex-shrink: 0;
 }
 
-/* 왼쪽 섹션 - 2*3 카드 (40%) */
+/* 왼쪽 섹션 - 작은 카메라 5개 1열 (16:9 비율) */
 .left-section {
-    flex: 0 0 40%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
     gap: 4px;
     min-width: 0;
     min-height: 0;
 }
 
 .left-section .small-card {
+    flex: 1;
     background-color: #242B3B;
     border-radius: 0;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 16px;
     font-weight: bold;
     flex-shrink: 0;
     min-width: 0;
-    min-height: 0;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    width: auto;
+    height: auto;
 }
 
 /* CCTV 카드 스타일 */
@@ -1089,9 +1091,9 @@ body {
     object-fit: cover;
 }
 
-/* 오른쪽 섹션 - 큰 카드 (60%) */
+/* 오른쪽 섹션 - 큰 카드 (나머지 공간) */
 .right-section {
-    flex: 0 0 60%;
+    flex: 1;
     min-width: 0;
     min-height: 0;
 }
@@ -1219,4 +1221,3 @@ body {
     align-items: center;
     justify-content: center;
 }
-
