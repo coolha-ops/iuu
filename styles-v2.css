@@ -174,7 +174,7 @@ body {
 
 .status-item.active {
     background-color: rgba(0, 255, 0, 0.2);
-    border-color: #00ff00;
+    border: 3px solid #00ff00;
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
 }
 
@@ -277,6 +277,12 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+
+/* 왼쪽 섹션의 모든 카드 border-radius 통일 */
+.center-section .left-section .card,
+.center-section .left-section .cctv-card {
+    border-radius: 8px;
 }
 
 /* 기존 .card의 가운데 정렬을 운영정보 카드에서는 해제 */
@@ -603,7 +609,7 @@ body {
 .system-card .progress-container {
     width: 100%;
     min-width: 0;
-    min-height: 18px;
+    min-height: 16px;
 }
 
 /* 카드4 (네트워크 전송 이력)는 network-content로 이미 분리되어 있음 */
@@ -898,7 +904,7 @@ body {
     width: 916px;
     height: 516px;
     background-color: #242B3B;
-    border-radius: 8px;
+    border-radius: 0;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -923,7 +929,7 @@ body {
     width: calc((916px - 16px) / 5);
     height: 101px;
     background-color: #242B3B;
-    border-radius: 8px;
+    border-radius: 0;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -931,6 +937,12 @@ body {
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
+}
+
+/* 오른쪽 섹션 아래쪽 2번 카드 - 작동중인 상태 (초록색 stroke) */
+.center-section .right-section .bottom-cards-container .small-card:nth-child(2) {
+    border: 2px solid #00ff00;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 255, 0, 0.3);
 }
 
 /* CCTV 카드 스타일 */
@@ -946,9 +958,9 @@ body {
     min-height: 0;
 }
 
-/* 오른쪽 섹션 cctv-card는 corner round 유지 */
+/* 오른쪽 섹션 cctv-card는 corner round 제거 */
 .center-section .right-section .cctv-card {
-    border-radius: 8px;
+    border-radius: 0;
 }
 
 .cctv-header {
@@ -1006,6 +1018,10 @@ body {
 }
 
 /* 왼쪽 섹션 카드의 label 앞에 두꺼운 | 아이콘 추가 */
+.center-section .left-section .card .cctv-header {
+    font-size: 15px;
+}
+
 .center-section .left-section .card .cctv-header .camera-label {
     display: flex;
     align-items: center;
@@ -1080,6 +1096,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: right center;
 }
 
 /* large-card의 이미지 */
@@ -1094,6 +1111,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: right center;
 }
 
 /* large-card의 왼쪽 label box (확대 아이콘 + 2번) */
